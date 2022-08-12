@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- https://www.w3schools.com/howto/howto_css_parallax.asp -->
+    <style>
+        body{
+            margin: 0px;
+            padding-top: 10px;
+        }
+        #nav{
+            width: 100%;
+            height: 10vh;
+            background-color: rgb(204, 204, 204);
+            float: top;
+            text-align: center;
+            padding-top: 5px;
+            letter-spacing: 10px;
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+
+        #imgA{
+            /* https://ascjcapstone.com/terms/spring-2021/oliversc/img/img_parallax.jpg */
+            background-image: url("https://ascjcapstone.com/terms/spring-2021/oliversc/img/img_parallax.jpg");
+            width: 100%;
+            height: 700px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: rgb(146, 146, 146);
+            position: relative;
+            opacity: 0.7;
+        }
+        #sectionA{
+            width: 320px;
+            height: 80px;
+            background-color: rgb(70, 70, 70);
+            position: absolute;
+            top:calc(50% - 40px);
+            left:calc(50% - 160px);
+            letter-spacing: 2px;
+        }
+        #textA{
+            color: aliceblue;
+            text-align: center;
+            position: relative;
+            top: 35%;
+            font-size: 30px;
+            font-weight:bold;
+            line-height: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #spaceB{
+            width: 100%;
+            height: 700px;
+            background-color: #fff;
+        }
+          #titleB{
+            color: rgb(109, 109, 109);
+            text-align: center;
+            position: relative;
+            top:60px;
+            font-size: 30px;
+            font-weight:light;
+            line-height: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 5px;
+        
+          }
+          #textB{
+            color: rgb(109, 109, 109);
+            font-family: Arial, Helvetica, sans-serif;           text-align: left;
+            position: relative;
+            margin: 50px;
+            top: 60px;
+            font-size: 15px;
+            font-weight:light;
+            line-height: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 3px;
+          }
+        #imgC{
+            background-image: url("data:image/jpeg;base64,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");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+            background-color: gray;
+        }
+          #textC{
+            width: 500px;
+            height: 50px;
+            color: #fff;
+            position:relative;
+            top: 50%;
+            left: calc(50% - 250px);
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 30px;
+            letter-spacing: 8px;
+
+          }
+        #spaceD{
+            width: 100%;
+            height: 15vh;
+            background-color: rgb(0, 0, 0);
+
+        }
+          #textD{
+            width: 600px;
+            height: 400px;
+            position: relative;
+            color: #fff;
+            left: 10%;
+            top:calc(50% - 200px);
+            top: 40%;
+            font-family: Arial, Helvetica, sans-serif;
+          }
+        #picE{
+            width: 100%;
+            height: 100vh;
+            background-color: gray;
+            background-image: url("https://ascjcapstone.com/terms/spring-2021/oliversc/img/img_parallax3.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.8;
+
+        }
+          #textE{
+            width: 500px;
+            height: 50px;
+            position:relative;
+            top:calc(50% - 25px);
+            left: calc(50% - 150px);
+            color: #fff;
+            font-size: 35px;
+            letter-spacing: 8px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+
+          }
+        #spaceF{
+            width: 100%;
+            height: 20vh;
+            background-color: black;
+        }
+          #textF{
+            width: 500px;
+            height: 400px;
+            color: #fff;
+            position: relative;
+            top: calc(50% - 20px);
+            left: 15%;
+          }
+        #picG{
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(146, 146, 146);
+            background-image: url("https://ascjcapstone.com/terms/spring-2021/oliversc/img/img_parallax.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.7;
+        }
+        #sectionG{
+            width: 320px;
+            height: 80px;
+            background-color: rgb(255, 255, 255);
+            position: relative;
+            left: 300px;
+            top: 400px;
+ 
+
+        }
+        #textG{
+            color: rgb(0, 0, 0);
+            text-align: center;
+            position: relative;
+            top: 35%;
+            font-size: 30px;
+            font-weight:bold;
+            line-height: 30px;
+            letter-spacing: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /*  圖片網址：https://ascjcapstone.com/terms/spring-2021/oliversc/img/img_parallax.jpg*/
+
+        /* text decoration */
+        /* 螢光標記：span */
+        /* 文字對齊：text line */
+        /* 行高：line-height */
+        /* 文字間距：letter-spacing  */
+        /* 自動刪除 padding 和 border ：box-sizing:border-box */
+
+ 
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <a href="/素材/01.jpg"download="link01">01</a>
+        <a href="#spaceB">PARALLAX DEMO</a>
+        <a href="#spaceB">03</a>
+        <a href=""id="link04">04</a>       
+    </div>
+    <div id="imgA"></div>
+    <div id="sectionA">
+        <div id="textA">SCROLL  DOWN</div>
+    </div>
+    <div id="spaceB">
+        <div id="titleB">PARALLAX DEMO</div>
+        <div id="textB">Parallax scrolling is a web site trend where the background content is moved at a different speed than the foreground content while scrolling. Nascetur per nec posuere turpis, lectus nec libero turpis nunc at, sed posuere mollis ullamcorper libero ante lectus, blandit pellentesque a, magna turpis est sapien duis blandit dignissim. Viverra interdum mi magna mi, morbi sociis. Condimentum dui ipsum consequat morbi, curabitur aliquam pede, nullam vitae eu placerat eget et vehicula. Varius quisque non molestie dolor, nunc nisl dapibus vestibulum at, sodales tincidunt mauris ullamcorper, dapibus pulvinar, in in neque risus odio. Accumsan fringilla vulputate at quibusdam sociis eleifend, aenean maecenas vulputate, non id vehicula lorem mattis, ratione interdum sociis ornare. Suscipit proin magna cras vel, non sit platea sit, maecenas ante augue etiam maecenas, porta porttitor placerat leo.</div>
+    </div>
+    <div id="imgC">
+        <div id="textC">LESS HEIGHT</div>
+    </div>
+    <div id="spaceD">
+        <div id="textD">Scroll up and down to really get the feeling of how Parallax Scrolling works.</div>
+    </div>
+    <div id="picE">
+        <div id="textE">SCROLL UP</div>
+    </div>
+    <div id="spaceF">
+        <div id="textF">Scroll up and down to really get the feeling of how Parallax Scrolling works.</div>
+    </div>
+    <div id="picG">
+        <div id="sectionG">
+            <div id="textG">COOL!</div>
+        </div>
+    </div>
+</body>
+</html>
